@@ -5,8 +5,8 @@
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
             <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
-              <a href="/support-vuejs">Support Vue.js</a>
+              <%- image_tag("images/patreon.png") %>
+              <%- link_to("support-vuejs", "Support Vue.js")%>
             </span>
         </div>
         <h2>
@@ -34,7 +34,7 @@
                   <li><h3>Meta</h3></li>
                 <% } %>
                 <li>
-                    <a href="/<%- p.path %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
+                    <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
                 </li>
             <% }) %>
         </ul>

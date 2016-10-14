@@ -9,18 +9,18 @@
         <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
         <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
-        <link rel="icon" href="/images/logo.png" type="image/x-icon">
+        <link rel="icon" href="<%- url_for('images/logo.png') %>" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "<%- page.type %>"
         </script>
         <%- css(isIndex ? 'css/index' : 'css/page') %>
         <%- partial('partials/ga') %>
-        <script src="/js/vue.js"></script>
+        <%- js("/js/vue.js") %>
     </head>
     <body class="<%- isIndex ? '' : 'docs' -%>">
         <div id="mobile-bar" <%- isIndex ? 'class="top"' : '' %>>
             <a class="menu-button"></a>
-            <a class="logo" href="/"></a>
+            <a class="logo" href="<%- url_for('') %>"></a>
         </div>
         <%- partial('partials/header') %>
         <% if (!isIndex) { %>
@@ -32,8 +32,8 @@
                 <% } %>
             </div>
             <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-            <script src="/js/smooth-scroll.min.js"></script>
-            <script src="/js/common.js"></script>
+            <%- js("js/smooth-scroll.min.js") %>
+            <%- js("js/common.js") %>
         <% } else { %>
             <%- body %>
         <% } %>
